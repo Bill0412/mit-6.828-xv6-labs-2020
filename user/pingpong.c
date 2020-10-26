@@ -26,6 +26,7 @@ main(int argc, char *argv[])
         close(p_parent_write[1]);
         sleep(1);
         read(p_child_write[0], buf1, sizeof(buf1));
+        close(p_child_write[0]);
         printf("%d: received %s\n", getpid(), buf1);
     } else { 
         // the child process
@@ -36,6 +37,7 @@ main(int argc, char *argv[])
         close(p_child_write[1]);
         sleep(0.5);
         read(p_parent_write[0], buf2, sizeof(buf2));
+        close(p_parent_write[0]);
         printf("%d: received %s\n", getpid(), buf2);
     }
 
