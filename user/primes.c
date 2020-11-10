@@ -12,9 +12,7 @@ main(int argc, char* argv[])
     }
     
     int fd[2];
-
     pipe(fd);
-    
     write(fd[1], nums, sizeof(nums));
 
     while(1) {
@@ -31,8 +29,6 @@ main(int argc, char* argv[])
             int divider = nums[0];
 
             if(divider == -1) {
-                
-                
                 exit(0);
             }
             
